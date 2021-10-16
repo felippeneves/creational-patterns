@@ -1,4 +1,4 @@
-package br.com.felippeneves.monostate.connection;
+package br.com.felippeneves.singleton.connection.conn;
 
 public class Connection {
     private boolean inUse;

@@ -1,22 +1,23 @@
-package br.com.felippeneves.monostate.connection;
+package br.com.felippeneves.singleton.connection.conn;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionPool {
-    public final static int POOL_SIZE = 2;
-	private static List<Connection> connectionsPool;
+    private static ConnectionPool singleton = new ConnectionPool();
+	public final static int POOL_SIZE = 2;
+	private List<Connection> connectionsPool;
 	
-	static {
+	public static ConnectionPool getInstance() {
+		return singleton;
+	}
+	
+	private ConnectionPool() {
 		System.out.println("Creating Connection Pool");
 		connectionsPool = new ArrayList<Connection>();
 		for(int i = 0; i < POOL_SIZE; i++) {
 			connectionsPool.add(new Connection());
 		}
-	}
-	
-	public ConnectionPool() {
-		System.out.println("New instance of Connection Pool");
 	}
 	
 	public Connection getConnection() {

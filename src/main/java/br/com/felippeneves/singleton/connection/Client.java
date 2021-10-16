@@ -1,31 +1,31 @@
-package br.com.felippeneves.monostate;
+package br.com.felippeneves.singleton.connection;
 
-import br.com.felippeneves.monostate.connection.Connection;
-import br.com.felippeneves.monostate.connection.ConnectionPool;
+import br.com.felippeneves.singleton.connection.conn.Connection;
+import br.com.felippeneves.singleton.connection.conn.ConnectionPool;
 
 public class Client {
     public static void doQuery1() {
-		ConnectionPool pool = new ConnectionPool();
+		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection conn = pool.getConnection();
 		if(conn != null)
 			conn.query("SELECT * FROM A1");
-
-        //Release connection
-        // pool.leaveConnection(conn);
-	}
-	
-	public static void doQuery2() {
-		ConnectionPool pool = new ConnectionPool();
-		Connection conn = pool.getConnection();
-		if(conn != null)
-			conn.query("SELECT * FROM A2");
         
         //Release connection
         // pool.leaveConnection(conn);
 	}
 	
+	public static void doQuery2() {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection conn = pool.getConnection();
+		if(conn != null)
+			conn.query("SELECT * FROM A2");
+
+        //Release connection
+        // pool.leaveConnection(conn);
+	}
+	
 	public static void doQuery3() {
-		ConnectionPool pool = new ConnectionPool();
+		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection conn = pool.getConnection();
 		if(conn != null)
 			conn.query("SELECT * FROM A3");
