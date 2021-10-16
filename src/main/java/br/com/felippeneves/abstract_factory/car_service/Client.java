@@ -1,4 +1,4 @@
-package br.com.felippeneves.abstract_factory;
+package br.com.felippeneves.abstract_factory.car_service;
 
 import br.com.felippeneves.abstract_factory.car_service.factory.CarAbstractFactory;
 import br.com.felippeneves.abstract_factory.car_service.factory.UserAbstractFactory;
